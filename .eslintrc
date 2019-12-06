@@ -1,6 +1,5 @@
 {
     "parser": "babel-eslint",
-    "extends": "react",
     "env": {
         "browser": true,
         "node": true
@@ -12,6 +11,6 @@
     },
     "rules": {
         "react/prop-types": 0,
-        "camelcase": 0,
+        "camelcase": 0
     }
 }

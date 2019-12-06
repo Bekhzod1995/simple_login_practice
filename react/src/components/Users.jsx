@@ -99,34 +99,28 @@ class Users extends Component {
 
     columnsForUsers = [
         {
-            title: 'Юзер',
+            title: 'Пользователь',
             dataIndex: 'user',
             key: 'user',
-            editable: true
+            editable: false
         },
         {
             title: 'Баланс',
             dataIndex: 'balance',
             key: 'balance',
-            editable: true
+            editable: true,
         },
         {
-            title: 'Retail Point Name',
+            title: 'Торговая точка',
             dataIndex: 'retailpointname',
             key: 'retailpointname',
-            editable: true
+            editable: false
         },
         {
-            title: 'Активный',
+            title: 'Статус',
             dataIndex: 'is_active',
             key: 'is_active',
-            editable: true
-        },
-        {
-            title: 'Язык',
-            dataIndex: 'lang',
-            key: 'lang',
-            editable: true
+            editable: false,
         },
         {
             title: 'Edit',
@@ -219,7 +213,7 @@ class Users extends Component {
             getUsers,
             logOut
         } = this.props;
-        
+
         const components = {
             body: {
                 cell: EditableCell
@@ -258,7 +252,7 @@ class Users extends Component {
                         user: userData.phone,
                         balance: userData.balance,
                         retailpointname: userData.retail_point_name,
-                        is_active: userData.is_active ? 'да' : 'нет',
+                        is_active: userData.is_active ? 'Активный' : 'Не активный',
                         lang: userData.lang
                         // description: () => {
                         //     const innerTable = tableRowItem.choices.map(descriptionItem => {
@@ -291,7 +285,7 @@ class Users extends Component {
                             user: tableRowItem.phone,
                             balance: tableRowItem.balance,
                             retailpointname: tableRowItem.retail_point_name,
-                            is_active: tableRowItem.is_active ? 'да' : 'нет',
+                            is_active: tableRowItem.is_active ? 'Активный' : 'Не активный',
                             lang: tableRowItem.lang
                             // description: () => {
                             //     const innerTable = tableRowItem.choices.map(descriptionItem => {
@@ -350,28 +344,6 @@ class Users extends Component {
                             />
                             <Button style={exit} type="link" onClick={() => logOut()}>Выход</Button>
                             <Content style={contentStyle}>
-                                <Form layout="inline" onSubmit={this.handleSubmit}>
-                                    <Form.Item label="Найти" validateStatus={searchError ? 'error' : ''} help={searchError || ''}>
-                                        {getFieldDecorator('search', {
-                                            // rules: [{ required: true, message: 'Please input your username!' }]
-                                        })(
-                                            <Input
-                                                prefix={<Icon type="search" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                                placeholder="id..."
-                                            />,
-                                        )}
-                                    </Form.Item>
-                                    <Form.Item>
-                                        <Button type="primary" htmlType="submit" disabled={hasErros(getFieldsError())}>
-                                            Найти
-                                        </Button>
-                                    </Form.Item>
-                                    <Button onClick={() => {
-                                        this.props.history.push('/admin/users');
-                                        return getUsers();
-                                    }} type="primary" style={{ float: 'right', marginTop: '5px' }}>Все пользователи</Button>
-                                </Form>
-
                                 <h1>Пользователи</h1>
                                 <EditableContext.Provider value={this.props.form}>
                                     <Table

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "npx webpack -p --mode production"
   },
   "author": "Bekhzod Beka",
   "license": "ISC",
