@@ -34,11 +34,11 @@
     "eslint-config-react": "^1.1.7",
     "eslint-loader": "^3.0.0",
     "eslint-plugin-react": "^7.14.3",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "prettier": "1.18.2",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.8.0"
   }
 }
